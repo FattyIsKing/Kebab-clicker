@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kebab clicker</title>
+    <title>Kebab Clicker</title>
     <link rel="stylesheet" href="src/style/style.css">
 </head>
 <body>
-    
-        <div class="main__item">
-            <h2>Stan konta: <span id="span">0</span><span>$</span></h2>
-        </div>
-        <div class="box">
-            <div class="box__item">
-                <img src="src/style/assets/kebab.png" alt="kebab" id="btn" style="cursor: pointer;">
-                <img src="src/style/assets/kilof1.png" alt="kilof" id="btn2" style="cursor: pointer;">
-                <p id="p1">Koszt ulepszenia: <span id="span4">10</span><span id="span5">$</span></p>
-                <div class="paragrafy">
-                    <p>Aktywny bonus: <span>*</span><span id="span2">1</span></p>
-                </div>
-                <span id="span3"></span>
-                <div class="batony">
-                    <button id="btn3">Ulepszenia</button>
-                </div>
-                <button id="btn4">Powrót</button>
+    <div class="wrapper_rules" id="wrapper_rules">
+        <h1>Witaj, Graczu</h1>
+        <p class="des">Kebab Clicker to gra polegająca na klikaniu w tytułowego kebaba i zbieraniu za to pieniędzy.</p>
+        <p class="des">Pieniądze wydajesz na ulepszenia (wkrótce będzie ich więcej!)</p>
+        <p class="des">Miłej zabawy :)</p>
+        <button id="come">Przejdź do gry</button>
+    </div>
+    <div class="wrapper">
+        <div class="header">
+            <div class="box" id="boxUp">
+                <h2 id="GrubyHead">Gruby Entertainment</h2>
+            </div>
+            <div class="box">
+                <h2>Aktywny bonus: <span id="bonus"></span></h2>
             </div>
         </div>
+        <div class="main">
+            <div class="kebab" id="kebab">
+                <h2 id="Stan">Stan konta: <span id="cash"></span></h2>
+                <img src="src/style/assets/kebab.png" alt="kebab" id="klik">
+                <button id="upgrade" class="buttons">Ulepszenia</button>
+            </div>
+            <div class="kebab" id="main">
+                <div class="kebab_main">
+                    <h1>Ulepszenia</h1>
+                    <p>Kilof (+1)</p>
+                    <p>Koszt: <span id="worth1"></span></p>
+                    <button id="buy1">Kup</button>
+                    <button id="return" class="buttons">Powrót</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h2 id="GrubyFoot">Gruby Entertainment</h2>
+        </div>
+    </div>
 
     <script src="src/script/index.js"></script>
 </body>

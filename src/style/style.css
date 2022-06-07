@@ -1,83 +1,154 @@
-@keyframes appear{
-    from{
-        transform: scale(0);
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-    to{
-        transform: scale(1);
-    }
-}
-
-
-html, body{
-    height: 100%;
-    width: 100%;
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+img{
+    cursor: pointer;
+}
+
+
+.wrapper, .wrapper_rules{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper_rules{
+    z-index: 2;
+    background-color: white;
+    position: absolute;
+    transition: 1s;
+}
+
+.header, .footer{
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(175, 41, 41);
     color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgb(41, 39, 39);
-    flex-direction: column;
+    justify-content: space-evenly;
 }
 
+.main{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+}   
 
-
-.main__item{
-    text-align: center;
-    font-size: 24px;
-}
-.box{
-    width: 400px;
-    height: 300px;
-    text-align: center;
-    font-size: 20px;
-}
-
-.box__item{
+.kebab{
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-#btn2, #p1, #span4, #span5, #btn4{
+.buttons{
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    transition: 0.3s;
     display: none;
 }
 
-button{
-    padding: 7px;
+.kebab_main{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box{
+    width: 50%;
+    text-align: center;
+}
+
+#Stan{
+    width: 300px;
+    text-align: center;
+}
+
+.des{
+    font-size: 20px;
+}
+
+#GrubyFoot{
+    display: none;
+}
+
+#buy1{
+    width: 50px;
+    padding: 3px;
     border-radius: 4px;
-    border: 2px black solid;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#come{
+    width: 100px;
+    padding: 2px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#come:hover{
+    box-shadow: 0 0 10px 1px black;
     background-color: black;
     color: white;
 }
 
-.paragrafy{
-    display: none;
-}
-
-
-
-.batony{
-    display: flex;
-}
-
-#btn4{
-    margin-top: 7px;
-}
-
-
-@media all and (max-width: 900px){
-    #btn{
-        width: 200px;
-        height: 144px;
+@media all and (max-width: 375px){
+    .des{
+        font-size: 15px;
+        width: 350px;
+        text-align: center;
     }
-    #btn2{
-        width: 200px;
-        height: 144px;
+    #GrubyHead{
+        display: none;
     }
-    html, body{
-        overflow: hidden;
+    #GrubyFoot{
+        display: block;
+    }
+    #main{
+        display: none;
+    }
+    .buttons{
+        display: block;
+    }
+    .header{
+        justify-content: center;
+    }
+    #boxUp{
+        display: none;
+    }
+    .box{
+        width: 100%;
     }
 }

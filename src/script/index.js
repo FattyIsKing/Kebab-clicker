@@ -1,79 +1,86 @@
-const btn = document.getElementById("btn");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-const span = document.getElementById("span");
-const span2 = document.getElementById("span2");
-const span3 = document.getElementById("span3");
-const span4 = document.getElementById("span4");
-const span5 = document.getElementById("span5");
-const p1 = document.getElementById("p1");
-const paragrafy = document.querySelector(".paragrafy");
-const spanValue = span.value;
-let wynik = 0;
-let need = 1;
-let upgrade = 10;
-let x = 1;
+const klik = document.getElementById("klik");
+const cash = document.getElementById("cash");
+const worth1 = document.getElementById("worth1");
+const buy1 = document.getElementById("buy1");
+const bonus = document.getElementById("bonus");
+const wrapper_rules = document.getElementById("wrapper_rules");
+const come = document.getElementById("come");
+const upgrade = document.getElementById("upgrade");
+const main = document.getElementById("main");
+const kebab = document.getElementById("kebab");
+const Return = document.getElementById("return");
 
-
-const handleChange =()=>{
-    span.innerHTML = wynik += x;
-    span3.innerHTML = "";
-    localStorage.setItem("myData", JSON.stringify(wynik));
-    const element = localStorage.getItem("myData");
-    span.innerHTML = element;
-    console.log(element);
+const Returning =()=>{
+    main.style.display = "none";
+    kebab.style.display = "flex";
 }
 
-const handleLocal=()=>{
-    localStorage.setItem("myData", JSON.stringify(wynik));
-    const element = localStorage.getItem("myData");
+Return.addEventListener("click", Returning);
+
+const Upgrades =()=>{
+    main.style.display = "flex";
+    kebab.style.display = "none";
 }
 
-btn.addEventListener("click", handleChange);
-btn.addEventListener("click", handleLocal);
+upgrade.addEventListener("click", Upgrades);
 
-const handleBuy =()=>{
-    if(wynik >=upgrade){
-        x += 0.5;
-        wynik -= upgrade;
-        span.innerHTML -= upgrade;
-        upgrade += 5;
-        span2.innerHTML = need += 0.5;
-        span3.innerHTML = "";
-        span4.innerHTML = upgrade;
+if (localStorage.getItem("data") === null) {
+    localStorage.setItem("data", "0");
+}
+
+if (localStorage.getItem("bonus") === null) {
+    localStorage.setItem("bonus", "1");
+}
+
+if (localStorage.getItem("worth1") === null) {
+    localStorage.setItem("worth1", "10");
+}
+
+let mn = parseFloat(localStorage.getItem("bonus"));
+let points = parseFloat(localStorage.getItem("data"));
+let worth1Val = parseInt(localStorage.getItem("worth1"));
+
+cash.innerHTML = points;
+bonus.innerHTML = localStorage.getItem("bonus");
+worth1.innerHTML = worth1Val;
+
+const Upgrade =()=>{
+    if(points < worth1Val){
+        alert("Nie stać cię na ulepszenie!");
     }
     else{
-        span3.innerHTML = "Nie stać cię na ulepszenie!";
-        span3.style.color = "red";
+        mn += 0.5;
+        points -= worth1Val;
+        cash.innerHTML = points;
+        worth1Val += 5;
+        localStorage.setItem("bonus", JSON.stringify(mn));
+        localStorage.setItem("data", JSON.stringify(points));
+        bonus.innerHTML = mn;
+        worth1.innerHTML = worth1Val;
+        localStorage.setItem("worth1", JSON.stringify(worth1Val));
     }
 }
-btn2.addEventListener("click", handleBuy);
+buy1.addEventListener("click", Upgrade);
 
-const handleUpgrade =()=>{
-    btn2.style.display = "flex";
-    p1.style.display = "flex";
-    span4.style.display = "flex";
-    span5.style.display = "flex";
-    btn.style.display = "none";
-    btn3.style.display = "none";
-    btn4.style.display = "flex";
-    paragrafy.style.display = "flex";
+
+
+
+const Click =()=>{
+    points += mn;
+    localStorage.setItem("data", JSON.stringify(points));
+    cash.innerHTML = points;
 }
 
-btn3.addEventListener("click", handleUpgrade);
+klik.addEventListener("click", Click);
 
-const handleDowngrade =()=>{
-    btn2.style.display = "none";
-    p1.style.display = "none";
-    span4.style.display = "none";
-    span5.style.display = "none";
-    btn.style.display = "flex";
-    btn3.style.display = "flex";
-    btn4.style.display = "none";
-    span3.innerHTML = "";
-    paragrafy.style.display = "none";
+if(localStorage.getItem("WrapperCheck") == "Ok"){
+    wrapper_rules.style.display = "none";
+}
+
+const wrapperMove =()=>{
+    wrapper_rules.style.transform = "translateX(-100%)";
+    localStorage.setItem("WrapperCheck", "Ok");
 }
 
 
-btn4.addEventListener("click", handleDowngrade);
+come.addEventListener("click", wrapperMove);
